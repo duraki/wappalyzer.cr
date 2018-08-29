@@ -14,27 +14,20 @@ module Wappalyzer
     def get_scripts(data : String) : Array(String)
       scripts = [] of String
 
-      if m = data.match(/<script[^>]+src=("|')([^"']+)\1/i)
-        m.to_a.each do |js|
-          p js
-          # scripts << js
-        end
-      end
-      p scripts
-      Process.exit
-
+      m = /<script[^>]+src=("|')([^"']+)\1/i.match(data)
       if m.nil?
         @logger.log.info("No scripts found in source data; moving on ...")
         return scripts
       end
-      # scripts = pattern.to_a.transpose[1]
-      # p scripts
-      # return scripts
-      Process.exit
 
-      # if !pattern.to_a.transpose.nil?
-      # @scripts = pattern.to_a.transpose[1]
-      # end
+      m.captures.each do |match|
+        p typeof(match)
+        p match
+        # p match.to_a.last
+      end
+
+      p scripts
+      Process.exit
     end
   end
 end
