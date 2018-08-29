@@ -1,0 +1,9 @@
+name: wappalyzer.cr
+version: 0.1.0
+
+authors:
+  - Halis Duraki <duraki@linuxmail.org>
+
+crystal: 0.25.1
+
+license: MIT
