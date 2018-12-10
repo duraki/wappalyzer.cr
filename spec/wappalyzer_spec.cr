@@ -1,6 +1,10 @@
 require "./spec_helper"
 
 describe Wappalyzer do
+  it "should host" do
+    # in spec_helper.cr
+  end
+
   it "should initialize" do
     Wappalyzer::Scanner.new(DOMAIN)
   end

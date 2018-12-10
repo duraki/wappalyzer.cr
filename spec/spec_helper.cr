@@ -1,5 +1,9 @@
 require "spec"
 require "../src/wappalyzer.cr"
 
-# DOMAIN = "https://crystal-lang.org/"
-DOMAIN = "http://0.0.0.0:8000/wapptest.html"
+HOST   = "localhost"
+PORT   = 8001
+DOMAIN = "http://#{HOST}:#{PORT}/fixtures/wapptest.html"
+
+Process.fork { system "pkill php" }
+Process.fork { system "cd ./spec && php -S #{HOST}:#{PORT}" }
